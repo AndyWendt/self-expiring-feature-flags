@@ -14,11 +14,6 @@ class CodeExpires
 
     public function __construct(private readonly Carbon $expirationDate, private readonly string $env) {}
 
-    public function forEnvironments(array $environments): self
-    {
-        return $this;
-    }
-
     public function andRaises()
     {
         if ($this->expirationDate->greaterThan('today')) return;
